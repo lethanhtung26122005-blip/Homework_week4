@@ -23,12 +23,6 @@ class Circle extends Shape {
     public void erase() {
         System.out.printf("Xoa hinh tron tai (%d,%d)\n",x,y);
     }
-    public void moveTo(int newX, int newY) {
-        erase();
-        x = newX;
-        y = newY;
-        draw();
-    }
 }
 class Square extends Shape {
     public Square(int x,int y) {
@@ -39,12 +33,6 @@ class Square extends Shape {
     }
     public void erase() {
         System.out.printf("Xoa hinh vuong tai (%d,%d)\n",x,y);
-    }
-    public void moveTo(int newX, int newY) {
-        erase();
-        x = newX;
-        y = newY;
-        draw();
     }
 }
 class Main {
