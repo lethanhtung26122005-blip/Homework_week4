@@ -1,3 +1,4 @@
+package Homework.Homework_week4.Bai_1;
 public abstract class Shape {
     protected int x,y;
     public Shape(int x, int y) {
