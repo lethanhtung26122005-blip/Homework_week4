@@ -1,5 +1,5 @@
 package Homework.Homework_week4.Bai_3;
-
+import java.util.Scanner;
 interface IWorkable {
     public void work();
 }
@@ -40,6 +40,27 @@ class Technician extends Employee {
 }
 class Main {
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        sc.nextLine();
+        Employee[] arr = new Employee[x];
+        for(int i=0; i<x; i++) {
+            String s = sc.next();
+            char type = s.charAt(0);
+            String id = sc.next();
+            String name = sc.next();
+            double baseSalary = sc.nextDouble();
+            if(type == 'O') {
+                arr[i] = new OfficWorker(id, name, baseSalary);
+            } else {
+                float overtimeHours = sc.nextFloat();
+                arr[i] = new Technician(id, name, baseSalary, overtimeHours);
+            }
+            sc.nextLine();
+        }
+        for(Employee a : arr) {
+            System.out.println(a.name + "-Pay: " + a.calculatePay());
+            a.work();
+        }
     }
 }
