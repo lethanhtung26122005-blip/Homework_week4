@@ -12,6 +12,6 @@ System.out.println("Show Data");
 class Main {
     public static void main(String[] args) {
         DataManager a = new DataManager();
-        a.show();
+        ((IData)a).show();
     }
 }

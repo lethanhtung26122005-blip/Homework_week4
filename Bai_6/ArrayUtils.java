@@ -19,16 +19,14 @@ public class ArrayUtils {
 class Student implements Comparable<Student> {
     public String id, name;
     public double gpa;
-
     public Student(String id, String name, double gpa) {
         this.id = id;
         this.name = name;
         this.gpa = gpa;
     }
-
     @Override
     public int compareTo(Student other) {
-        return Double.compare(this.gpa, other.gpa);
+        return Double.compare(this.gpa,other.gpa);
     }
 }
 class Main {

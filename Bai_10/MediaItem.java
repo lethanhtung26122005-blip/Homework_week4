@@ -53,33 +53,42 @@ class LibrarySection<T extends MediaItem> {
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine());
+
+        int n = sc.nextInt();
+
         LibrarySection<Book> bookSection = new LibrarySection<>();
         LibrarySection<DVD> dvdSection = new LibrarySection<>();
+
         for (int i = 0; i < n; i++) {
-            String[] data = sc.nextLine().trim().split("\\s+");
-            String type = data[0];
-            String id = data[1];
-            String name = data[2];
+            String type = sc.next();
+            String id = sc.next();
+            String name = sc.next();
+
             if (type.equals("B")) {
-                String author = data[3];
-                int pages = Integer.parseInt(data[4]);
+                String author = sc.next();
+                int pages = sc.nextInt();
+
                 bookSection.addItem(
                     new Book(id, name, author, pages)
                 );
+
             } else if (type.equals("D")) {
-                String director = data[3];
-                int duration = Integer.parseInt(data[4]);
+                String director = sc.next();
+                int duration = sc.nextInt();
+
                 dvdSection.addItem(
                     new DVD(id, name, director, duration)
                 );
             }
         }
-        System.out.println("Khu vực Sách:");
+
+        System.out.println("Khu vuc Sach:");
         bookSection.displayItems();
+
         System.out.println();
-        System.out.println("Khu vực DVD:");
+        System.out.println("Khu vuc DVD:");
         dvdSection.displayItems();
+
         sc.close();
     }
 }

@@ -10,11 +10,11 @@ public abstract class Hub {
     }
     public void turnOffAll() {
         status = false;
-        System.out.println(name + "turn off");
+        System.out.println(name + " turn off");
     }
     public void turnOnALL() {
         status = true;
-        System.out.println(name + "turn on");
+        System.out.println(name + " turn on");
     }
 }
 interface adjustable {
@@ -29,10 +29,10 @@ class Light extends Hub implements adjustable {
         super(id,name,status);
     }
     public void upper() {
-        System.out.println(name + "Uppering light ...");
+        System.out.println(name + " Uppering light ...");
     }
     public void lower() {
-        System.out.println(name + "Lowering light ...");
+        System.out.println(name + " Lowering light ...");
     }
 }
 class AC extends Hub implements wifiConnectable{
@@ -40,7 +40,7 @@ class AC extends Hub implements wifiConnectable{
         super(id,name,status);
     }
     public void connectToWifi() {
-        System.out.println(name +"Connecting to neareast Wifi ...");
+        System.out.println(name +" Connecting to the neareast Wifi ...");
     }
 }
 class speaker extends Hub implements adjustable,wifiConnectable {
@@ -48,13 +48,13 @@ class speaker extends Hub implements adjustable,wifiConnectable {
         super(id,name,status);
     }
     public void upper() {
-        System.out.println(name + "Uppering sounds ...");
+        System.out.println(name + " Uppering sounds ...");
     }
     public void lower() {
-        System.out.println(name + "Lowering sounds ...");
+        System.out.println(name + " Lowering sounds ...");
     }
     public void connectToWifi() {
-        System.out.println(name + "Connecting to neareast Wifi ...");
+        System.out.println(name + " Connecting to the neareast Wifi ...");
     }
 }
 class curtain extends Hub {

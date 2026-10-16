@@ -14,7 +14,6 @@ abstract class Product {
 }
 class Food extends Product {
     private String expiryDate;
-
     public Food(String id, String name, String expiryDate) {
         super(id, name);
         this.expiryDate = expiryDate;
@@ -26,17 +25,15 @@ class Food extends Product {
 }
 class Electronic extends Product {
     private int warrantyMonths;
-
     public Electronic(String id, String name, int warrantyMonths) {
         super(id, name);
         this.warrantyMonths = warrantyMonths;
     }
     @Override
     public String getInfo() {
-        return name + " - " + warrantyMonths + " tháng bảo hành";
+        return name + " - " + warrantyMonths + " thang bao hanh";
     }
 }
-// Kho tổng quát: chỉ chấp nhận các kiểu kế thừa Product
 class Warehouse<T extends Product> {
     private List<T> products = new ArrayList<>();
     public void importProduct(T product) {
@@ -54,33 +51,35 @@ class Warehouse<T extends Product> {
 class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine());
+        int n = sc.nextInt();
         Warehouse<Food> foodWarehouse = new Warehouse<>();
         Warehouse<Electronic> electronicWarehouse = new Warehouse<>();
+
         for (int i = 0; i < n; i++) {
-            String[] data = sc.nextLine().trim().split("\\s+");
-            String type = data[0];
-            String id = data[1];
-            String name = data[2];
+            String type = sc.next();
+            String id = sc.next();
+            String name = sc.next();
+
             if (type.equals("F")) {
-                String expiryDate = data[3];
+                String expiryDate = sc.next();
+
                 foodWarehouse.importProduct(
                     new Food(id, name, expiryDate)
                 );
+
             } else if (type.equals("E")) {
-                int warrantyMonths = Integer.parseInt(data[3]);
+                int warrantyMonths = sc.nextInt();
+
                 electronicWarehouse.importProduct(
                     new Electronic(id, name, warrantyMonths)
                 );
             }
         }
-        System.out.println("Kho Thực phẩm:");
+        System.out.println("Kho thuc pham:");
         foodWarehouse.inventory();
-
         System.out.println();
-        System.out.println("Kho Điện tử:");
+        System.out.println("Kho dien tu:");
         electronicWarehouse.inventory();
         sc.close();
     }
 }
-

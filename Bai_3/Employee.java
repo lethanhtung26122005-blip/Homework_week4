@@ -42,7 +42,6 @@ class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
-        sc.nextLine();
         Employee[] arr = new Employee[x];
         for(int i=0; i<x; i++) {
             String s = sc.next();
@@ -56,7 +55,6 @@ class Main {
                 float overtimeHours = sc.nextFloat();
                 arr[i] = new Technician(id, name, baseSalary, overtimeHours);
             }
-            sc.nextLine();
         }
         for(Employee a : arr) {
             System.out.println(a.name + "-Pay: " + a.calculatePay());
